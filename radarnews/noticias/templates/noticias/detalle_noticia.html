@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>{{ noticia.titulo }}</h1>
+    <p><strong>Autor:</strong> {{ noticia.autor }}</p>
+    <p><strong>Publicado el:</strong> {{ noticia.fecha_publicacion }}</p>
+    <p>{{ noticia.contenido }}</p>
+    <a href="{% url 'lista_noticias' %}">Volver a la lista</a>
+{% endblock %}

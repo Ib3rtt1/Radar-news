@@ -17,14 +17,14 @@ Including another URLconf
 # radarnews/radarnews/urls.py
 from django.contrib import admin
 
+from django.shortcuts import render 
 from django.urls import path, include
-from django.http import HttpResponse
+from django.shortcuts import render  
+
 
 # Vista para la página principal
-
-
 def home(request):
-    return HttpResponse('<h1>Bienvenido a Radar News!</h1>')
+    return render(request, 'base/home.html')
 
 
 urlpatterns = [
@@ -32,3 +32,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('noticias/', include('noticias.urls')),
 ]
+

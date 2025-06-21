@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias</title>
-</head>
-<body>
-    <h1>Lista de Noticias</h1>
-    <ul>
-        {% for noticia in noticias %}
-            <li>
-                <h2>{{ noticia.titulo }}</h2>
-                <p>{{ noticia.contenido }}</p>
-                <p><strong>Fecha de publicación:</strong> {{ noticia.fecha_publicacion }}</p>
-            </li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Noticias Recientes</h1>
+<ul>
+    {% for noticia in noticias %}
+        <li>
+            <a href="{% url 'detalle_noticia' noticia.id %}">
+                {{ noticia.titulo }} - {{ noticia.fecha_publicacion }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
